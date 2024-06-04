@@ -1,8 +1,6 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { IUserController } from '../interfaces/IUserController';
 import { IUserService } from '../interfaces/IUserService';
-import { ParamsDictionary } from 'express-serve-static-core';
-import { ParsedQs } from 'qs';
 
 class UserController implements IUserController {
     constructor(readonly userService: IUserService) {}

@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { IUserService } from './IUserService';
 
-type FuncType = (req: Request, res: Response) => void;
+export type FuncType = (req: Request, res: Response) => void;
 
 export interface IUserController {
     userService: IUserService;
