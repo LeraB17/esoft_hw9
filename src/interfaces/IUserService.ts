@@ -8,7 +8,7 @@ export interface IUserService {
     createUser: (userData: UserData) => Promise<IUser>;
     updateUser: (id: string, data: PartialUserData) => Promise<IUser | undefined>;
     deleteUser: (id: string) => Promise<IUser | undefined>;
-    // getUsersFilteredAge: (age: number) => Promise<IUser[]>;
-    // getUsersFilteredDomain: (domain: string) => Promise<IUser[]>;
-    // getUsersSorted: () => Promise<IUser[]>;
+    getUsersFilteredAge: (age: number) => Promise<IUser[]>;
+    getUsersFilteredDomain: (domain: string) => Promise<IUser[]>;
+    getUsersSorted: () => Promise<IUser[]>;
 }

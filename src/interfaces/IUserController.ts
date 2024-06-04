@@ -1,14 +1,16 @@
 import { NextFunction, Request, Response } from 'express';
 import { IUserService } from './IUserService';
 
+type FuncType = (req: Request, res: Response) => void;
+
 export interface IUserController {
     userService: IUserService;
-    getUsers: (req: Request, res: Response, next: NextFunction) => void;
-    getUser: (req: Request, res: Response, next: NextFunction) => void;
-    createUser: (req: Request, res: Response, next: NextFunction) => void;
-    updateUser: (req: Request, res: Response, next: NextFunction) => void;
-    deleteUser: (req: Request, res: Response, next: NextFunction) => void;
-    // getUsersSorted: any;
-    // getUsersFilteredAge: any;
-    // getUsersFilteredDomain: any;
+    getUsers: FuncType;
+    getUser: FuncType;
+    createUser: FuncType;
+    updateUser: FuncType;
+    deleteUser: FuncType;
+    getUsersSorted: FuncType;
+    getUsersFilteredAge: FuncType;
+    getUsersFilteredDomain: FuncType;
 }

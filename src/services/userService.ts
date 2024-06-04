@@ -31,12 +31,20 @@ class UserService implements IUserService {
         return this.userRepo.delete(id);
     };
 
-    // getUsersFilteredAge = async (age: number): Promise<IUser[]> => {
-    //     // const
-    //     // const usersFiltered = .filter((user) => user.age > age);
-    // };
-    // getUsersFilteredDomain: (domain: string) => Promise<IUser[]>;
-    // getUsersSorted: () => Promise<IUser[]>;
+    getUsersFilteredAge = async (age: number): Promise<IUser[]> => {
+        if (!age) {
+            throw new Error('Incorrect age');
+        }
+        return this.userRepo.filterByAge(age);
+    };
+
+    getUsersFilteredDomain = async (domain: string): Promise<IUser[]> => {
+        return this.userRepo.filterByDomain(domain);
+    };
+
+    getUsersSorted = async (): Promise<IUser[]> => {
+        return this.userRepo.sorted();
+    };
 }
 
 export default UserService;
