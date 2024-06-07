@@ -10,6 +10,7 @@ import InMemoryCatRepository from './repositories/inMemoryCatRepository.js';
 import CatService from './services/catService.js';
 import CatController from './controllers/catController.js';
 import { catPoutes } from './routes/catRoutes.js';
+import swaggerDocs from './swagger/swagger.js';
 
 const userRepo = new InMemoryUserRepository();
 const catRepo = new InMemoryCatRepository();
@@ -27,9 +28,10 @@ app.use(express.json());
 
 app.use('/api', userRoutes(userController));
 app.use('/api', catPoutes(catController));
-app.use(routeNotFound);
 
 const httpServer = http.createServer(app);
 httpServer.listen(SERVER.SERVER_PORT, () => {
+    swaggerDocs(app, SERVER.SERVER_PORT);
+    app.use(routeNotFound); // после всех маршрутов
     console.log(`Server started on port ${SERVER.SERVER_PORT}`);
 });
